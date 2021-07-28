@@ -1,0 +1,195 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block title %}
+
+{% endblock title %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'styles/profile.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<!--Main layout-->
+<main class="mb-5">
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="widget-wrap">
+                        <div class="single-sidebar-widget popular-post-widget">
+                            <h4 class="single-sidebar-widget__title">New Post</h4>
+                            <div class="popular-post-list">
+                                <div class="container">
+                                    <div class="comment-form" style="background: inherit !important;">
+                                        <form>
+                                            <img class="img-fluid" src="{% static 'images/blog/blog1.png' %}" alt="">
+                                            <div class="form-group">
+                                            <div class="file-input">
+                                            <input type="file" name="file-input" id="file-input" class="file-input__input" />
+                                            <label class="file-input__label mt-3" for="file-input">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="upload" class="svg-inline--fa fa-upload fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                    <path fill="currentColor" d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"></path>
+                                                </svg>
+                                                <span>Upload file</span></label>
+                                            </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="subject" placeholder="Title" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Title'">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="subject" placeholder="Tags" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Tags'">
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-select form-control" aria-label="Default select example" id="subject">
+                                                <option selected>Open this select menu</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <textarea class="form-control mb-10" rows="5" name="message" placeholder="Post" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Post'" required=""></textarea>
+                                            </div>
+                                            <a href="#" class="button submit_btn">Post</a>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-lg-12 sidebar-widgets">
+                        <div class="widget-wrap">
+                            <div class="single-sidebar-widget newsletter-widget">
+                                <h4 class="single-sidebar-widget__title">Newsletter</h4>
+                                <div class="form-group mt-30">
+                                    <div class="col-autos">
+                                        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'">
+                                    </div>
+                                </div>
+                                <button class="bbtns d-block mt-20 w-100">Subcribe</button>
+                            </div>
+                            <div class="single-sidebar-widget post-category-widget">
+                                <h4 class="single-sidebar-widget__title">Catgory</h4>
+                                <ul class="cat-list mt-20">
+                                    <li>
+                                        <a href="#" class="d-flex justify-content-between">
+                                            <p>Technology</p>
+                                            <p>(03)</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="d-flex justify-content-between">
+                                            <p>Software</p>
+                                            <p>(09)</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="d-flex justify-content-between">
+                                            <p>Lifestyle</p>
+                                            <p>(12)</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="d-flex justify-content-between">
+                                            <p>Shopping</p>
+                                            <p>(02)</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="d-flex justify-content-between">
+                                            <p>Food</p>
+                                            <p>(10)</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="single-sidebar-widget popular-post-widget">
+                                <h4 class="single-sidebar-widget__title">Popular Post</h4>
+                                <div class="popular-post-list">
+                                    <div class="single-post-list">
+                                        <div class="thumb">
+                                            <img class="card-img rounded-0" src="{% static 'images/blog/thumb/thumb1.png' %}" alt="">
+                                            <ul class="thumb-info">
+                                                <li><a href="#">Adam Colinge</a></li>
+                                                <li><a href="#">Dec 15</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="details mt-20">
+                                            <a href="blog-single.html">
+                                                <h6>Accused of assaulting flight attendant miktake alaways</h6>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="single-post-list">
+                                        <div class="thumb">
+                                            <img class="card-img rounded-0" src="{% static 'images/blog/thumb/thumb2.png' %}" alt="">
+                                            <ul class="thumb-info">
+                                                <li><a href="#">Adam Colinge</a></li>
+                                                <li><a href="#">Dec 15</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="details mt-20">
+                                            <a href="blog-single.html">
+                                                <h6>Tennessee outback steakhouse the worker diagnosed</h6>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="single-post-list">
+                                        <div class="thumb">
+                                            <img class="card-img rounded-0" src="{% static 'images/blog/thumb/thumb3.png' %}" alt="">
+                                            <ul class="thumb-info">
+                                                <li><a href="#">Adam Colinge</a></li>
+                                                <li><a href="#">Dec 15</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="details mt-20">
+                                            <a href="blog-single.html">
+                                                <h6>Tennessee outback steakhouse the worker diagnosed</h6>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-sidebar-widget tag_cloud_widget">
+                                <h4 class="single-sidebar-widget__title">Popular Post</h4>
+                                <ul class="list">
+                                    <li>
+                                        <a href="#">project</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">love</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">technology</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">travel</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">software</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">life style</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">design</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">illustration</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Blog Post Siddebar -->
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- Section: Grey background -->
+</main> {% endblock content %} {% block js %} {% endblock js %}

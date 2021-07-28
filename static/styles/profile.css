@@ -1,0 +1,52 @@
+a,
+button {
+    text-decoration: none !important;
+}
+
+.btn-check:focus+.btn,
+.btn:focus, input, input:focus {
+    box-shadow: none;
+}
+
+
+
+
+ul,
+li {
+    list-style: none;
+    list-style-type: none;
+}
+
+.file-input__input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.file-input__label {
+    cursor: pointer;
+    display: inline-block;
+    align-items: center;
+    padding: 12px 42px;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #ff9907;
+    font-weight: 500;
+    background-color: #222;
+    transition: all .4s ease;
+}
+
+.file-input__label:hover{
+    background-color: #ff9907;
+    border-color: #ff9907;
+    color: #000022;
+}
+
+
+.file-input__label svg {
+    height: 16px;
+    margin-right: 4px;
+}

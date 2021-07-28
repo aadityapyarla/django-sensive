@@ -1,0 +1,60 @@
+{% extends 'accounts/base.html' %}
+
+{% load static %}
+
+
+{% block title %}
+
+{% endblock title %}
+
+{% block content %}
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 login-section-wrapper">
+                    <div class="brand-wrapper">
+                        <a href="{% url 'home' %}">
+                            <img src="{% static 'images/logo.png' %}" alt="logo" class="logo">
+                        </a>
+                    </div>
+                    <div class="login-wrapper my-auto">
+                        <h1 class="login-title">Register</h1>
+                        <form action="" method="post">
+                            {% csrf_token %}
+                        <div class="form-group mb-4">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" id="username" class="form-control" placeholder="johndoe@1567">
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" id="email" class="form-control" placeholder="email@example.com">
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Enter your passsword" minlength="8">
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="confirm-password">Confirm Password</label>
+                                <input type="password" name="confirm-password" id="confirm-password" class="form-control" placeholder="Confirm your passsword">
+                            </div>
+                            {% if messages %}
+                                {% for message in messages %}
+                                <p class="small mx-auto" style="color: red;">{{ message }}</p>
+                                {% endfor %}
+                            {% endif %}
+                            <div class="d-grid">
+                            <button id="login" class="btn btn-block login-btn" type="submit">Register</button>
+                            </div>
+                        </form>
+                        <p class="login-wrapper-footer-text">Have an account? <a href="{% url 'login' %}" class="text-reset">Login here</a></p>
+                    </div>
+                </div>
+                <div class="col-sm-6 px-0 d-none d-sm-block">
+                    <img src="{% static 'images/login1.jpg' %}" alt="login image" class="login-img">
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+{% endblock content %}

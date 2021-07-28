@@ -1,0 +1,26 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"file_exclude_patterns": [".DS_Store"],
+			"folder_exclude_patterns": ["__pycache__"],
+		},
+		{
+			"path": "/Users/aaruaadi/Library/Application Support/Sublime Text/Packages",
+		},
+	],
+	"build_systems":
+	[
+		{
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"name": "Anaconda Python Builder",
+			"selector": "source.python",
+			"shell_cmd": "\"venv/bin/python\" -u \"$file\"",
+		}
+	],
+
+	"settings": {
+        "python_interpreter": "venv/bin/python",
+	},
+}

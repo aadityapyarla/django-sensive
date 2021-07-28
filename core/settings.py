@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # ! Authentication
 # * https://docs.djangoproject.com/en/3.2/topics/auth/default/
-# AUTH_USER_MODEL = 'accounts.Account'
+AUTH_USER_MODEL = 'accounts.Account'
 
 
 # ! Database

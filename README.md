@@ -1,9 +1,12 @@
+[![Python3.9.5](https://img.shields.io/badge/python-v3.9.5-green.svg)](https://www.python.org/downloads/release/python-395/)&nbsp;&nbsp;&nbsp;[![Django3.2](https://img.shields.io/badge/django-v3.2.5-green.svg)](https://www.djangoproject.com/download/)&nbsp;&nbsp;&nbsp;[![open source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/aadityapyarla/)&nbsp;&nbsp;&nbsp;[![Docs](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://github.com/aadityapyarla/)
+
 
 <img src = "https://technext.github.io/sensive/img/logo.png" width = "150px" > </img>
 <hr />
 
 A simple blog web app with registration system and dynamic content. It is based on Python and written with help of Django.
 
+<img src="https://themewagon.com/wp-content/uploads/2019/03/sensive.jpg"></img>
 
 ## Prequisites
 - Must have installed python >= 3.9.5
@@ -109,6 +112,9 @@ Now you can run the project through django simpley enter the following command g
 ## Screenshots
 
 <img src="https://themewagon.com/wp-content/uploads/2019/03/sensive.jpg"></img>
+<img src="docs/login.png"></img>
+<img src="docs/adminpanel.png"></img>
+<img src="docs/token.png"></img>
 
 ## Free Resources UI/UX
 <a href="https://themewagon.com/themes/free-bootstrap-4-html5-travel-blog-website-template-sensive/">
@@ -137,3 +143,8 @@ Made with <img width="30" height="20" src="https://static.djangoproject.com/img/
 - Email me at `aadityapyarla82@gmail.com`
 - Raise an issue to help perfecting the project
 - Fork and make a pull request for mixing your taste into the project
+
+
+[![Made with Python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://python.org)
+[![Made with Python](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://python.org)
+[![Uses Django]( https://img.shields.io/badge/uses-Django-red?style=for-the-badge)](https://python.org)

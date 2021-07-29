@@ -110,14 +110,11 @@ Now you can run the project through django simpley enter the following command g
 
 <img src="https://themewagon.com/wp-content/uploads/2019/03/sensive.jpg"></img>
 
-<<<<<<< HEAD
-=======
-## Credits for UI/UX
-<a href="https://www.themewagon.com/themes/free-bootstrap-4-html5-travel-blog-website-template-sensive/">
+## Free Resources UI/UX
+<a href="https://themewagon.com/themes/free-bootstrap-4-html5-travel-blog-website-template-sensive/">
    <img src="https://d2zav2bjdlctd5.cloudfront.net/themes/themewagon/img/logo.png"></img>
 </a>
 
->>>>>>> docs
 ## Free Resources
 
 - [Dennis Ivanov](https://www.youtube.com/channel/UCTZRcDjjkVajGL6wd76UnGg)

@@ -111,10 +111,22 @@ Now you can run the project through django simpley enter the following command g
 
 ## Screenshots
 
+- Landing Page
 <img src="https://themewagon.com/wp-content/uploads/2019/03/sensive.jpg"></img>
+
+
+- Login/Registeration Page
 <img src="docs/login.png"></img>
+
+
+- Custom Django admin Panel
 <img src="docs/adminpanel.png"></img>
+
+
+- Auth Token Verification
 <img src="docs/token.png"></img>
+
+
 
 ## Free Resources UI/UX
 <a href="https://themewagon.com/themes/free-bootstrap-4-html5-travel-blog-website-template-sensive/">

@@ -64,3 +64,6 @@ def verifyAuthToken(request, auth_token):
     else:
         messages.error(request, "Your account is disabled")
         return redirect('home')
+
+def PasswordResetCompleteView(request):
+    return redirect('login')

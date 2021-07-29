@@ -20,11 +20,12 @@ class MyAccountManager(BaseUserManager):
 
     def create_superuser(self, email, username, password=None):
         user = self.create_user(email=self.normalize_email(email), username=username, password=password)
+        user.is_verified = True
         user.is_admin = True
         user.is_staff = True
         user.is_superuser = True
         user.save(using=self._db)
-        print(user)
+        print("Successfully created new superuser, ", user.username)
         return user
 
 

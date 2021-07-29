@@ -1,12 +1,24 @@
 from django.shortcuts import render, redirect
 from .models import Account
 from django.contrib import messages
-from . views import register, send_auth_token
-from django.contrib.auth import logout
+from django.contrib.auth import logout, login, authenticate
+from . views import custom_login, register, get_login_cookies, send_auth_token
 
 
 def renderLogin(request):
-    return render(request, 'accounts/login.html')
+    context = {}
+ # ! Thoughts for client side form validation
+ # ? Will think about the implementation later
+ # * If any suggestion, feel free to make a pull request
+    # if request.is_ajax():
+    #     if request.method == 'POST':
+    #         return custom_login(request)
+    if request.method == 'POST':
+        return custom_login(request)
+    cookies = get_login_cookies(request, 'dksjfnsdkjfnsdf')
+    if cookies is not False:
+        context = {'email': cookies['email'], 'password': cookies['password']}
+    return render(request, 'accounts/login.html', context)
 
 
 def renderRegister(request):
@@ -32,6 +44,11 @@ def renderAuthTokenSent(request):
     return render(request, 'accounts/auth_token_sent.html')
 
 
+def renderLogout(request):
+    logout(request)
+    return redirect('home')
+
+
 def verifyAuthToken(request, auth_token):
     account = Account.objects.filter(auth_token=auth_token).first()
     if account.is_active:
@@ -42,7 +59,11 @@ def verifyAuthToken(request, auth_token):
             account.is_verified = True
             account.save()
             messages.info(request, "Your email was successfully verified!")
+            login(request, account)
             return redirect('home')
     else:
         messages.error(request, "Your account is disabled")
         return redirect('home')
+
+def PasswordResetCompleteView(request):
+    return redirect('login')

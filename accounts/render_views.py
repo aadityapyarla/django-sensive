@@ -2,14 +2,14 @@ from django.shortcuts import render, redirect
 from .models import Account
 from django.contrib import messages
 from django.contrib.auth import logout, login, authenticate
-from . views import custom_login, register, get_login_cookies, send_auth_token
+from . views import custom_login, custom_register, get_login_cookies, send_auth_token
 
 
-def renderLogin(request):
+def render_login(request):
     context = {}
- # ! Thoughts for client side form validation
- # ? Will think about the implementation later
- # * If any suggestion, feel free to make a pull request
+    # ! Thoughts for client side form validation
+    # ? Will think about the implementation later
+    # * If any suggestion, feel free to make a pull request
     # if request.is_ajax():
     #     if request.method == 'POST':
     #         return custom_login(request)
@@ -21,21 +21,21 @@ def renderLogin(request):
     return render(request, 'accounts/login.html', context)
 
 
-def renderRegister(request):
+def render_register(request):
     if request.method == 'POST':
-        return register(request)
+        return custom_register(request)
     return render(request, 'accounts/register.html')
 
 
-def renderProfile(request):
+def render_profile(request):
     return render(request, 'accounts/profile.html')
 
 
-def renderNewPost(request):
+def render_new_post(request):
     return render(request, 'accounts/new_post.html')
 
 
-def renderAuthTokenSent(request):
+def render_auth_token_sent(request):
     if request.method == 'POST':
         email = request.session['resend_email']
         auth_token = request.session['auth_token']
@@ -44,12 +44,12 @@ def renderAuthTokenSent(request):
     return render(request, 'accounts/auth_token_sent.html')
 
 
-def renderLogout(request):
+def render_logout(request):
     logout(request)
     return redirect('home')
 
 
-def verifyAuthToken(request, auth_token):
+def verify_auth_token(request, auth_token):
     account = Account.objects.filter(auth_token=auth_token).first()
     if account.is_active:
         if account.is_verified:

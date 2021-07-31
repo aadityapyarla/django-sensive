@@ -7,16 +7,16 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     # ! Template Renderer URL Routes
     # ? These URL's render the templates for further user interactions
-    path('login/', render_views.renderLogin, name="login"),
-    path('register/', render_views.renderRegister, name="register"),
-    path('profile/', render_views.renderProfile, name="profile"),
-    path('new_post/', render_views.renderNewPost, name="new_post"),
+    path('login/', render_views.render_login, name="login"),
+    path('custom_register/', render_views.render_register, name="custom_register"),
+    path('profile/', render_views.render_profile, name="profile"),
+    path('new_post/', render_views.render_new_post, name="new_post"),
 
     # ! Data Processing URL Routes
     # ? These URL's don't render, instead they process the given data and redirects the user
-    path('logout/', render_views.renderLogout, name="logout"),
-    path('auth_token_sent/', render_views.renderAuthTokenSent, name="auth_token_sent"),
-    path('auth_token_verify/<auth_token>/', render_views.verifyAuthToken, name="auth_token_sent"),
+    path('logout/', render_views.render_logout, name="logout"),
+    path('auth_token_sent/', render_views.render_auth_token_sent, name="auth_token_sent"),
+    path('auth_token_verify/<auth_token>/', render_views.verify_auth_token, name="auth_token_sent"),
 
     # ! Password Reset Email Routes
     # ? These URL's are provided by Django for Password Reset functionality, they do render the templates automatically

@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
+from django.core.signing import BadSignature
+from django.shortcuts import redirect
 from django.contrib import messages
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, authenticate
 from .models import Account
 from django.core.mail import send_mail
 
@@ -22,11 +23,11 @@ def get_login_cookies(request, salt):
             'password': request.get_signed_cookie('password', salt=salt)
         }
         return cookies
-    except:
+    except BadSignature:
         return False
 
 
-def register(request):
+def custom_register(request):
     username = request.POST.get('username')
     email = request.POST.get('email')
     password = request.POST.get('password')
@@ -50,7 +51,7 @@ def register(request):
 def custom_login(request):
     email = request.POST.get('email')
     password = request.POST.get('password')
-    remmember = request.POST.get('remmember')
+    remember = request.POST.get('remember')
     account = Account.objects.filter(email=email).first()
     if account:
         if account.is_verified:
@@ -58,13 +59,13 @@ def custom_login(request):
                 user = authenticate(request, username=email, password=password)
                 if user is not None:
                     response = redirect('home')
-                    if remmember == 'on':
+                    if remember == 'on':
                         response.set_signed_cookie('email', email, salt="dksjfnsdkjfnsdf", max_age=86400)
                         response.set_signed_cookie('password', password, salt="dksjfnsdkjfnsdf", max_age=86400)
                         login(request, user)
                         messages.success(request, "You are successfully logged in")
                         return response
-                    if remmember is None and 'email' in request.COOKIES and 'password' in request.COOKIES:
+                    if remember is None and 'email' in request.COOKIES and 'password' in request.COOKIES:
                         response.delete_cookie('email')
                         response.delete_cookie('password')
                         login(request, user)

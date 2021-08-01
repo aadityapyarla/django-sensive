@@ -41,6 +41,12 @@
     </svg>
 </div>
 
+<div id="scroll-to-top">
+    <div class="scroll-to-top-wrapper">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+</div>
+
 <!--================Header Menu Area =================-->
 <header class="header_area">
     <div class="main_menu">
@@ -77,10 +83,10 @@
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right navbar-social">
-                        <li><a href="#"><i class="ti-facebook"></i></a></li>
-                        <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                        <li><a href="#"><i class="ti-instagram"></i></a></li>
-                        <li><a href="#"><i class="ti-skype"></i></a></li>
+                        <li><a href="https://www.facebook.com/myfood.pod/" target="_blank"><i class="ti-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/aadityapyarla82" target="_blank"><i class="ti-twitter-alt"></i></a></li>
+                        <li><a href="https://www.instagram.com/aadityapyarla9700" target="_blank"><i class="ti-instagram"></i></a></li>
+                        <li><a href="https://www.github.com/aadityapyarla" target="_blank"><i class="ti-github"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -207,6 +213,10 @@
 <script src="{% static 'js/main.js' %}"></script>
 <script>
     $('body').addClass('overflowhidden');
+    $(window).on('beforeunload', function (){
+        $('body').hide()
+        $(window).scrollTop(0)
+    });
     $(window).on('load', function () {
         setInterval(function () {
             $('#loader').fadeOut("slow");
@@ -214,6 +224,10 @@
                 $('body').removeClass('overflowhidden');
             }, 500);
         }, 1000);
+    });
+
+    $('#scroll-to-top').click(function () {
+       $("html, body").animate({ scrollTop: 0 }, 1000);
     });
 </script>
 {% block js %}

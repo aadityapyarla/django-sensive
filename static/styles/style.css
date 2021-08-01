@@ -2705,3 +2705,18 @@ li {
     height: 16px;
     margin-right: 4px;
 }
+
+#scroll-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+}
+
+#scroll-to-top .scroll-to-top-wrapper {
+    background: #23e323;
+    font-size: 1.2rem;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 50%;
+}

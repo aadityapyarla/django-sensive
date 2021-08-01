@@ -8,7 +8,7 @@ urlpatterns = [
     # ! Template Renderer URL Routes
     # ? These URL's render the templates for further user interactions
     path('login/', render_views.render_login, name="login"),
-    path('custom_register/', render_views.render_register, name="custom_register"),
+    path('register/', render_views.render_register, name="register"),
     path('profile/', render_views.render_profile, name="profile"),
     path('new_post/', render_views.render_new_post, name="new_post"),
 
@@ -20,8 +20,13 @@ urlpatterns = [
 
     # ! Password Reset Email Routes
     # ? These URL's are provided by Django for Password Reset functionality, they do render the templates automatically
-    path('reset_password/', auth_views.PasswordResetView.as_view(template_name="accounts/reset_pass.html"), name="reset_password"),
-    path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(template_name="accounts/reset_pass_sent.html"), name="password_reset_done"),
-    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="accounts/reset_pass_confirm.html"), name="password_reset_confirm"),
+    path('reset_password/', auth_views.PasswordResetView.as_view(template_name="accounts/reset_pass.html"),
+         name="reset_password"),
+    path('reset_password_sent/',
+         auth_views.PasswordResetDoneView.as_view(template_name="accounts/reset_pass_sent.html"),
+         name="password_reset_done"),
+    path('reset/<uidb64>/<token>/',
+         auth_views.PasswordResetConfirmView.as_view(template_name="accounts/reset_pass_confirm.html"),
+         name="password_reset_confirm"),
     path('reset_password_complete/', render_views.PasswordResetCompleteView, name="password_reset_complete"),
 ]

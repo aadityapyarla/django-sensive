@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Account
 from django.contrib import messages
 from django.contrib.auth import logout, login, authenticate
-from . views import custom_login, custom_register, get_login_cookies, send_auth_token
+from .views import custom_login, custom_register, get_login_cookies, send_auth_token
 
 
 def render_login(request):
@@ -64,6 +64,7 @@ def verify_auth_token(request, auth_token):
     else:
         messages.error(request, "Your account is disabled")
         return redirect('home')
+
 
 def PasswordResetCompleteView(request):
     return redirect('login')

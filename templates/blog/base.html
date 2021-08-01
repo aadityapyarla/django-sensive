@@ -2,181 +2,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title> {% block title %}{% endblock title %} </title>
-	<link rel="icon" href="{% static 'images/Fevicon.png' %}" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> {% block title %}{% endblock title %} </title>
+    <link rel="icon" href="{% static 'images/Fevicon.png' %}" type="image/png">
 
-  <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrap.min.css' %}">
-  <link rel="stylesheet" href="{% static 'plugins/fontawesome/css/all.min.css' %}">
-  <link rel="stylesheet" href="{% static 'plugins/themify-icons/themify-icons.css' %}">
-  <link rel="stylesheet" href="{% static 'plugins/linericon/style.css' %}">
-  <link rel="stylesheet" href="{% static 'plugins/owl-carousel/owl.theme.default.min.css' %}">
-  <link rel="stylesheet" href="{% static 'plugins/owl-carousel/owl.carousel.min.css' %}">
-  <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/themify-icons/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/linericon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/owl-carousel/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/owl-carousel/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/loader.css' %}">
 
-  {% block styles %}
+    {% block styles %}
 
-  {% endblock styles %}
+    {% endblock styles %}
 
 </head>
 <body>
 
-  <!--================Header Menu Area =================-->
-  <header class="header_area">
-    <div class="main_menu">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container box_1620">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <a class="navbar-brand logo_h" href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-            <ul class="nav navbar-nav menu_nav justify-content-center">
-              <li class="nav-item active"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="{% url 'archive' %}">Archive</a></li>
-              <li class="nav-item"><a class="nav-link" href="{% url 'category' %}">Category</a>
-
-              {% if request.user.is_superuser and request.user != 'AnonymousUser' %}
-                <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">Admin Panel</a>
-              {% endif %}
-
-              {% if request.user.is_authenticated %}
-                  <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout <span class="ml-2"><i class="fas fa-sign-out-alt"></i></span> </a></li>
-              {% else %}
-                  <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-                  <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Sign Up</a></li>
-              {% endif %}
-
-            </ul>
-            <ul class="nav navbar-nav navbar-right navbar-social">
-              <li><a href="#"><i class="ti-facebook"></i></a></li>
-              <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-              <li><a href="#"><i class="ti-instagram"></i></a></li>
-              <li><a href="#"><i class="ti-skype"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </header>
-  <!--================Header Menu Area =================-->
-
-<div class="container">
-{% if messages %}
-  {% for message in messages %}
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      {{ message }}
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-  {% endfor %}
-{% endif %}
+<div id="loader">
+    <svg>
+        <g>
+            <path d="M 50,100 A 1,1 0 0 1 50,0"/>
+        </g>
+        <g>
+            <path d="M 50,75 A 1,1 0 0 0 50,-25"/>
+        </g>
+        <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#FF56A1;stop-opacity:1"/>
+                <stop offset="100%" style="stop-color:#FF9350;stop-opacity:1"/>
+            </linearGradient>
+        </defs>
+    </svg>
 </div>
 
-  {% block content %}
+<!--================Header Menu Area =================-->
+<header class="header_area">
+    <div class="main_menu">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container box_1620">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <a class="navbar-brand logo_h" href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav menu_nav justify-content-center">
+                        <li class="nav-item active"><a class="nav-link" href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'archive' %}">Archive</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'category' %}">Category</a>
 
-  {% endblock content %}
+                            {% if request.user.is_superuser and request.user != 'AnonymousUser' %}
+                                <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">Admin Panel</a>
+                            {% endif %}
 
-  <!--================ Start Footer Area =================-->
-  <footer class="footer-area section-padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3  col-md-6 col-sm-6">
-          <div class="single-footer-widget">
-            <h6>About Us</h6>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore
-              magna aliqua.
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-4  col-md-6 col-sm-6">
-          <div class="single-footer-widget">
-            <h6>Newsletter</h6>
-            <p>Stay update with our latest</p>
-            <div class="" id="mc_embed_signup">
+                            {% if request.user.is_authenticated %}
+                                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout <span
+                                        class="ml-2"><i class="fas fa-sign-out-alt"></i></span> </a></li>
+                            {% else %}
+                                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Sign Up</a></li>
+                            {% endif %}
 
-              <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                method="get" class="form-inline">
-
-                <div class="d-flex flex-row">
-
-                  <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
-                    required="" type="email">
-
-
-                  <button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
-                  <div style="position: absolute; left: -5000px;">
-                    <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-                  </div>
-
-                  <!-- <div class="col-lg-4 col-md-4">
-                        <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
-                      </div>  -->
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right navbar-social">
+                        <li><a href="#"><i class="ti-facebook"></i></a></li>
+                        <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
+                        <li><a href="#"><i class="ti-instagram"></i></a></li>
+                        <li><a href="#"><i class="ti-skype"></i></a></li>
+                    </ul>
                 </div>
-                <div class="info"></div>
-              </form>
             </div>
-          </div>
-        </div>
-        <div class="col-lg-3  col-md-6 col-sm-6">
-          <div class="single-footer-widget mail-chimp">
-            <h6 class="mb-20">Instragram Feed</h6>
-            <ul class="instafeed d-flex flex-wrap">
-              <li><img src="{% static 'images/instagram/i1.jpg' %}" alt=""></li>
-              <li><img src="{% static 'images/instagram/i2.jpg' %}" alt=""></li>
-              <li><img src="{% static 'images/instagram/i3.jpg' %}" alt=""></li>
-              <li><img src="{% static 'images/instagram/i4.jpg' %}" alt=""></li>
-              <li><img src="{% static 'images/instagram/i5.jpg' %}" alt=""></li>
-              <li><img src="{% static 'images/instagram/i6.jpg' %}" alt=""></li>
-              <li><img src="{% static 'images/instagram/i7.jpg' %}" alt=""></li>
-              <li><img src="{% static 'images/instagram/i8.jpg' %}" alt=""></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="single-footer-widget">
-            <h6>Follow Us</h6>
-            <p>Let us be social</p>
-            <div class="footer-social d-flex align-items-center">
-              <a href="#">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-dribbble"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-behance"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
-        <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-      </div>
+        </nav>
     </div>
-  </footer>
-  <!--================ End Footer Area =================-->
+</header>
+<!--================Header Menu Area =================-->
 
-  <script src="{% static 'plugins/jquery/jquery-3.2.1.min.js' %}"></script>
-  <script src="{% static 'plugins/bootstrap/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'plugins/owl-carousel/owl.carousel.min.js' %}"></script>
-  <script src="{% static 'js/main.js' %}"></script>
-  {% block js %}
+<div class="container">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
 
-  {% endblock js %}
+{% block content %}
+
+{% endblock content %}
+
+<!--================ Start Footer Area =================-->
+<footer class="footer-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3  col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h6>About Us</h6>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore dolore
+                        magna aliqua.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4  col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h6>Newsletter</h6>
+                    <p>Stay update with our latest</p>
+                    <div class="" id="mc_embed_signup">
+
+                        <form target="_blank" novalidate="true"
+                              action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                              method="get" class="form-inline">
+
+                            <div class="d-flex flex-row">
+
+                                <input class="form-control" name="EMAIL" placeholder="Enter Email"
+                                       onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
+                                       required="" type="email">
+
+
+                                <button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span>
+                                </button>
+                                <div style="position: absolute; left: -5000px;">
+                                    <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
+                                           type="text">
+                                </div>
+
+                                <!-- <div class="col-lg-4 col-md-4">
+                                      <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
+                                    </div>  -->
+                            </div>
+                            <div class="info"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3  col-md-6 col-sm-6">
+                <div class="single-footer-widget mail-chimp">
+                    <h6 class="mb-20">Instragram Feed</h6>
+                    <ul class="instafeed d-flex flex-wrap">
+                        <li><img src="{% static 'images/instagram/i1.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'images/instagram/i2.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'images/instagram/i3.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'images/instagram/i4.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'images/instagram/i5.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'images/instagram/i6.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'images/instagram/i7.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'images/instagram/i8.jpg' %}" alt=""></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h6>Follow Us</h6>
+                    <p>Let us be social</p>
+                    <div class="footer-social d-flex align-items-center">
+                        <a href="#">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+            <p class="footer-text m-0">
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a
+                    href="https://colorlib.com" target="_blank">Colorlib</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+        </div>
+    </div>
+</footer>
+<!--================ End Footer Area =================-->
+
+<script src="{% static 'plugins/jquery/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'plugins/owl-carousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script>
+    $('body').addClass('overflowhidden');
+    $(window).on('load', function () {
+        setInterval(function () {
+            $('#loader').fadeOut("slow");
+            setInterval(function () {
+                $('body').removeClass('overflowhidden');
+            }, 500);
+        }, 1000);
+    });
+</script>
+{% block js %}
+
+{% endblock js %}
 </body>
 </html>

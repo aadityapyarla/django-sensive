@@ -1,4 +1,3 @@
-
 {% extends 'blog/home.html' %}
 
 {% load static %}
@@ -9,37 +8,39 @@
 {% endblock title %}
 
 {% block content %}
-<style>
-.file-input__label {
-    cursor: pointer;
-    display: inline-block;
-    align-items: center;
-    padding: 12px 42px;
-    font-size: 13px;
-    text-transform: uppercase;
-    color: #ff9907;
-    font-weight: 500;
-    background-color: #222;
-    transition: all .4s ease;
-}
+    <style>
+        .file-input__label {
+            cursor: pointer;
+            display: inline-block;
+            align-items: center;
+            padding: 12px 42px;
+            font-size: 13px;
+            text-transform: uppercase;
+            color: #ff9907;
+            font-weight: 500;
+            background-color: #222;
+            transition: all .4s ease;
+        }
 
-.file-input__label:hover{
-    background-color: #ff9907;
-    border-color: #ff9907;
-    color: #000022;
-}
-</style>
+        .file-input__label:hover {
+            background-color: #ff9907;
+            border-color: #ff9907;
+            color: #000022;
+        }
+    </style>
     <main style="margin-bottom: 90vh;">
-    <div class="container d-flex align-items-center" style="justfiy-content: center;height: 90vh;">
-        <div class="text-center card-body my-auto mx-auto" style="background: #f9f9ff;font-size: 27px;font-family: 'Lora', serif;color: #3a414e;line-height: 1.333;">
-            <h2>We have sent you an email!</h2>
-        <img src="https://images.unsplash.com/photo-1605136292546-36994b3f5b59?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c21pbGV5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="..." class="img-fluid">
-        <form action="" method="post">
-    {% csrf_token %}
-        <button class="file-input__label mt-3">Resend Email</button>
-    </form>
+        <div class="container d-flex align-items-center" style="justfiy-content: center;height: 90vh;">
+            <div class="text-center card-body my-auto mx-auto"
+                 style="background: #f9f9ff;font-size: 27px;font-family: 'Lora', serif;color: #3a414e;line-height: 1.333;">
+                <h2>We have sent you an email!</h2>
+                <img src="https://images.unsplash.com/photo-1605136292546-36994b3f5b59?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c21pbGV5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+                     alt="..." class="img-fluid">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <button class="file-input__label mt-3">Resend Email</button>
+                </form>
+            </div>
         </div>
-    </div>
     </main>
 
 

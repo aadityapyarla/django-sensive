@@ -14,44 +14,53 @@
                     <div class="login-wrapper my-auto">
                         <h1 class="login-title">Log in</h1>
                         <form action="" method="post">
-                        {% csrf_token %}
+                            {% csrf_token %}
 
-                        {% if email and password %}
-                            <div class="form-group mb-4">
-                                <label for="email">Email</label>
-                                <input type="email" value="{{ email }}" name="email" id="email" class="form-control" placeholder="johndoe@1567" autofocus required>
-                            </div>
-                            <div class="form-group mb-4">
-                                <label for="password">Password</label>
-                                <input type="password" value="{{ password }}" name="password" id="password" class="form-control" placeholder="Enter your passsword" required>
-                            </div>
+                            {% if email and password %}
+                                <div class="form-group mb-4">
+                                    <label for="email">Email</label>
+                                    <input type="email" value="{{ email }}" name="email" id="email" class="form-control"
+                                           placeholder="johndoe@1567" autofocus required>
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label for="password">Password</label>
+                                    <input type="password" value="{{ password }}" name="password" id="password"
+                                           class="form-control" placeholder="Enter your passsword" required>
+                                </div>
 
-                        {% else %}
-                            <div class="form-group mb-4">
-                                <label for="email" id="foremail">Email</label>
-                                <input type="email" name="email" id="email" class="form-control" placeholder="johndoe@1567" autofocus required>
-                            </div>
-                            <div class="form-group mb-4">
-                                <label for="password" id="forpassword">Password</label>
-                                <input type="password" name="password" id="password" class="form-control" placeholder="Enter your passsword" required>
-                            </div>
-                        {% endif %}
+                            {% else %}
+                                <div class="form-group mb-4">
+                                    <label for="email" id="foremail">Email</label>
+                                    <input type="email" name="email" id="email" class="form-control"
+                                           placeholder="johndoe@1567" autofocus required>
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label for="password" id="forpassword">Password</label>
+                                    <input type="password" name="password" id="password" class="form-control"
+                                           placeholder="Enter your passsword" required>
+                                </div>
+                            {% endif %}
 
                             {% if messages %}
                                 {% for message in messages %}
-                                <p class="small mx-auto" style="color: red;">{{ message }}</p>
+                                    <p class="small mx-auto" style="color: red;">{{ message }}</p>
                                 {% endfor %}
                             {% endif %}
                             <div class="custom-control custom-checkbox">
-                                <input name="remmember" type="checkbox" class="custom-control-input mb-4" style="height: 16px;width: 17px;" id="customCheck1" {% if email and password %}checked{% endif %}>
-                                <label style="font-size: 1rem;font-weight: bold;color: #b0adad;" class="custom-control-label" for="customCheck1">Remmember Me </label>
+                                <input name="remember" type="checkbox" class="custom-control-input mb-4"
+                                       style="height: 16px;width: 17px;" id="customCheck1"
+                                       {% if email and password %}checked{% endif %}>
+                                <label style="font-size: 1rem;font-weight: bold;color: #b0adad;"
+                                       class="custom-control-label" for="customCheck1">Remmember Me </label>
                             </div>
                             <div class="d-grid">
-                            <button id="login" class="btn btn-block login-btn" type="submit">Login</button>
+                                <button id="login" class="btn btn-block login-btn" type="submit">Login</button>
                             </div>
                         </form>
                         <a href="{% url 'reset_password' %}" class="forgot-password-link">Forgot password?</a>
-                        <p class="login-wrapper-footer-text">Don't have an account? <a href="{% url 'register' %}" class="text-reset">Register here</a></p>
+                        <p class="login-wrapper-footer-text">Don't have an account? <a href="{% url 'register' %}"
+                                                                                       class="text-reset">Register
+                            here</a></p>
                     </div>
                 </div>
                 <div class="col-sm-6 px-0 d-none d-sm-block">
@@ -60,9 +69,9 @@
             </div>
         </div>
     </main>
-<!-- ! Thoughts for client side form validation -->
-<!-- ? Will think about the implementation later -->
-<!-- * If any suggestion, feel free to make a pull request -->
-<!--<script src="{% static 'plugins/jquery/jquery-3.2.1.min.js' %}"></script> 
+    <!-- ! Thoughts for client side form validation -->
+    <!-- ? Will think about the implementation later -->
+    <!-- * If any suggestion, feel free to make a pull request -->
+    <!--<script src="{% static 'plugins/jquery/jquery-3.2.1.min.js' %}"></script>
     <script src="{% static 'js/login.js' %}"></script>-->
 {% endblock content %}

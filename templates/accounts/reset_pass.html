@@ -16,16 +16,18 @@
                     <div class="login-wrapper my-auto">
                         <h1 class="login-title">Forgot Password</h1>
                         <form action="" method="post">
-                        {% csrf_token %}
+                            {% csrf_token %}
                             <div class="form-group mb-4">
                                 <label for="id_email">Email</label>
                                 {% render_field form.email class="form-control" placeholder="johndoe@1567" autofocus="autofocus" required="required" %}
                             </div>
                             <div class="d-grid">
-                            <button id="login" class="btn btn-block login-btn" type="submit">Send Email</button>
+                                <button id="login" class="btn btn-block login-btn" type="submit">Send Email</button>
                             </div>
                         </form>
-                        <p class="login-wrapper-footer-text">Don't have an account? <a style="text-decoration: underline !important;" href="{% url 'register' %}" class="text-reset">Register here</a></p>
+                        <p class="login-wrapper-footer-text">Don't have an account? <a
+                                style="text-decoration: underline !important;" href="{% url 'register' %}"
+                                class="text-reset">Register here</a></p>
                     </div>
                 </div>
                 <div class="col-sm-6 px-0 d-none d-sm-block">

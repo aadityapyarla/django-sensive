@@ -17,13 +17,16 @@ def send_auth_token(request, auth_token, email):
 
 
 def get_login_cookies(request, salt):
-    try:
-        cookies = {
-            'email': request.get_signed_cookie('email', salt=salt),
-            'password': request.get_signed_cookie('password', salt=salt)
-        }
-        return cookies
-    except BadSignature:
+    if 'email' in request.COOKIES and 'password' in request.COOKIES:
+        try:
+            cookies = {
+                'email': request.get_signed_cookie('email', salt=salt),
+                'password': request.get_signed_cookie('password', salt=salt)
+            }
+            return cookies
+        except:
+            return False
+    else:
         return False
 
 

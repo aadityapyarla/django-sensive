@@ -11,9 +11,11 @@ urlpatterns = [
     path('', include('blog.urls')),
     path('accounts/', include('accounts.urls')),
     path('admin/', admin.site.urls, name="admin"),
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 
     # ! Installed App's URL Routes
     # ? These URL's render the installed apps
 
     path('__debug__/', include(debug_toolbar.urls)),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]

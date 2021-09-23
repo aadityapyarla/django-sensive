@@ -11,6 +11,7 @@ urlpatterns = [
     path('register/', render_views.render_register, name="register"),
     path('profile/', render_views.render_profile, name="profile"),
     path('new_post/', render_views.render_new_post, name="new_post"),
+    path('update_profile/', render_views.render_update_profile, name="update_profile"),
 
     # ! Data Processing URL Routes
     # ? These URL's don't render, instead they process the given data and redirects the user

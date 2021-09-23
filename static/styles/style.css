@@ -2713,6 +2713,10 @@ li {
     cursor: pointer;
 }
 
+#scroll-to-top {
+    z-index: 1000000 !important;
+}
+
 #scroll-to-top .scroll-to-top-wrapper {
     background: #23e323;
     font-size: 1.2rem;

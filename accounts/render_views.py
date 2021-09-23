@@ -34,6 +34,9 @@ def render_profile(request):
 def render_new_post(request):
     return render(request, 'accounts/new_post.html')
 
+def render_update_profile(request):
+    context = {}
+    return render(request, 'accounts/update_profile.html')
 
 def render_auth_token_sent(request):
     if request.method == 'POST':

@@ -29,7 +29,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'https://django-sensive.herokuapp.com/'
+    'django-sensive.herokuapp.com/'
 ]
 
 INTERNAL_IPS = [

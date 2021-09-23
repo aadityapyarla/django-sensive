@@ -1,0 +1,45 @@
+.comment-form .form-control {
+    color: inherit !important;
+    text-transform: none  !important;
+}
+
+.profile-pic {
+    cursor: pointer;
+}
+
+.hover-camera {
+    color: #fff;
+    background: #0000007a;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    margin-top: -8rem;
+    position: absolute;
+    z-index: 100;
+}
+.hover-camera2 {
+    color: #fff;
+    background: #0000007a;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 100;
+    margin-top: -8rem;
+}
+
+#profile-cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

@@ -50,3 +50,18 @@ li {
     height: 16px;
     margin-right: 4px;
 }
+
+.active-tab {
+    color: #fff !important;
+    background-color: #222222 !important;
+}
+
+.active-tab:hover {
+    color: #222222 !important;
+    background-color: #dae0e5 !important;
+}
+
+button.bg-light:focus{
+    color: #fff !important;
+    background-color: #222222 !important;
+}
